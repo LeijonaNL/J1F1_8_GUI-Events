@@ -23,13 +23,11 @@ button1 = Button(
     root,
     text = 'Up',
     style = 'button_Config.TButton'
-    # command = lambda: update(1)
 )
 button2 = Button(
     root,
     text = 'Down',
     style = 'button_Config.TButton'
-    # command = lambda: update(-1)
 )
 label = Label(
     root,
