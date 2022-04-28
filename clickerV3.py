@@ -42,6 +42,11 @@ button2.pack(ipadx = 50, ipady = 10, pady = 50)
 
 def update(x):
     global value
+    global last_Event
+    if x == 1:
+        last_Event = 'Up'
+    elif x == -1:
+        last_Event = 'Down'
     value += x
     label.config(text = f'{value}')
     if value == 0:
@@ -53,15 +58,6 @@ def update(x):
 
 def on_Enter(self):
     root.config(bg = 'YELLOW')
-def on_Leave(self):
-    global value
-    V = value
-    if V == 0:
-        root.config(bg = 'GREY')
-    elif V > 0:
-        root.config(bg = 'GREEN')
-    elif V < 0:
-        root.config(bg = 'RED')
 
 def on_Double(self):
     global value
@@ -76,7 +72,7 @@ def on_Double(self):
         label.config(text = f'{value}')
 
 label.bind('<Enter>', on_Enter)
-label.bind('<Leave>', on_Leave)
+label.bind('<Leave>', lambda e: update(0))
 label.bind('<Double-Button-1>', on_Double)
 
 root.mainloop()

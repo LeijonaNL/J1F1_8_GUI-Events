@@ -56,15 +56,6 @@ def update(x):
 
 def on_Enter(self):
     root.config(bg = 'YELLOW')
-def on_Leave(self):
-    global value
-    V = value
-    if V == 0:
-        root.config(bg = 'GREY')
-    elif V > 0:
-        root.config(bg = 'GREEN')
-    elif V < 0:
-        root.config(bg = 'RED')
 
 def on_Double(self):
     global value
@@ -82,7 +73,7 @@ button1.bind("<Button-1>", lambda e: update(1))
 button2.bind("<Button-1>", lambda e: update(-1))
 # Binds added for V2
 label.bind("<Enter>", on_Enter)
-label.bind("<Leave>", on_Leave)
+label.bind("<Leave>", lambda e: update(0))
 # Binds added for V3
 label.bind("<Double-Button-1>", on_Double)
 # Binds added for V4

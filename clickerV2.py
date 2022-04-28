@@ -52,16 +52,8 @@ def update(x):
 
 def on_Enter(self):
     root.config(bg = 'YELLOW')
-def on_Leave(self):
-    global value
-    V = value
-    if V == 0:
-        root.config(bg = 'GREY')
-    elif V > 0:
-        root.config(bg = 'GREEN')
-    elif V < 0:
-        root.config(bg = 'RED')
+    
 label.bind('<Enter>', on_Enter)
-label.bind('<Leave>', on_Leave)
+label.bind('<Leave>', lambda e: update(0))
 
 root.mainloop()
